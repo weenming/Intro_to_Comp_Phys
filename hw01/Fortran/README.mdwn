@@ -1,0 +1,40 @@
+# Homework 01
+## Question 1: Quadratic equation
+- Input: coefficients of the quadratic equation.
+  - Format: 3 real numbers `a`, `b` and `c`, separated by commas. In descending order of power.
+- Output: the solutions
+  - Complex solutions will also be output
+
+
+## Question 2: Game of 24
+- Input: the points of 4 given cards respectively. 
+  - Format: 4 intergers, separated by commas.
+  - Restrictions: the input should not exceed 10 according to the rules of the game. But as long as there is no overflow, bigger inputs are also allowed.
+  - Example:
+  > \>\> `type the points of 4 cards, separated by commas`
+  > 
+  > \>\> `1, 2, 3, 4`
+  >
+  > \>\>
+- Output: solution (if it exist) of the '24 points' game
+  - If there is no solution, the output will be
+  > \>\> `no solution`
+  - If there are solutions, only one of them will be printed.
+  - When the calculation is done sequentially, for example: **24 = (((a + b) / c) - d)**, the output will be
+  - (the below `a`, `b`, `c`, `d`, `r1` and `r2` are replaced by their values in the program output)
+  > \>\> `found`
+  >
+  > \>\> `a + b = r1`
+  >
+  > \>\> `r1 / c = r2`
+  >
+  > \>\> `r2 - d = 24`
+  - When the calculation can only be done by, separately calculating 2 pairs of cards and operate their results, for example **24 = (a + b) / (c + d)**, the output will be 
+  > \>\> `found`
+  >
+  > \>\> `a + b = r1`
+  >
+  > \>\> `c + d = r2`
+  >
+  > \>\> `r1 / r2 = 24`
+  - The solution will only be printed in the second format iff it can not be transformed to the first format
