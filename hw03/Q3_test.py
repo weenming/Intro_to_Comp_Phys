@@ -47,5 +47,3 @@ def test_sqrt():
     a = np.array([[ 0.75592895,  1.13389342], [ 0.37796447,  1.88982237]])
 
     print(q3.matrix_sqrt(a))
-
-test_normalization(46285673.)
