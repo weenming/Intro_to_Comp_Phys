@@ -19,6 +19,9 @@ def V1(x):
 def V2(x):
     return x ** 4 - (x) ** 2 
 
+def V3(x):
+    return 2*x + x ** 4
+
 
 def hamilton_operator(wave_func, v):
     def Hpsi(x):
@@ -458,7 +461,7 @@ def different_basis_center_pot_2(fpath = './result/V2/different_center/'):
     fig.set_size_inches(10, 6)
     for y in [0.5, 1.5, 2.5, 3.5, 4.5, 5.5]:
         ax.plot([3, 41], [y, y], ls='-', alpha=0.3, color='grey', zorder=0)
-    basis_nums = [4, 5, 6, 7, 8, 9, 10, 20, 25, 30, 35, 40, 100]
+    basis_nums = [4, 5, 6, 7, 8, 9, 10, 20, 25, 30, 35, 40, 50, 60, 70]
     this_E_evens = np.zeros((len(basis_nums), 4))
     i = 0
     for basis_num in basis_nums:
@@ -501,5 +504,11 @@ def different_basis_center_pot_2(fpath = './result/V2/different_center/'):
     
     fig.savefig(fpath+'different basis number.png', dpi=600)
 
+def demo():
+    E, eigen_states = main_center_dif_basis_num_even(np.linspace(-10, 10, 60), v=V3, w=3)
+    print('eigenvalues of Hamiltonian are:')
+    print(E.sort())
+    plot_wave_func(eigen_states[:3], E[:3], plot_abs=True, c=lambda x: plt.get_cmap('tab10')(x))
+
 if __name__ == '__main__':
-    different_basis_center_pot_2()
+    demo()

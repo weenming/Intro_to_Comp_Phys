@@ -2,10 +2,20 @@ import Q3_schrodinger as q3
 import matplotlib.pyplot as plt
 import numpy as np
 
-def plot_basis_func():
+def plot_basis_center_func():
     centers = [i for i in range(-5, 5)]
     basis = [q3.basis_pos(center, odd=False, w=3) for center in centers]
     q3.plot_wave_func(basis, [basis[i](0) for i in range(len(basis))], c=lambda x: plt.get_cmap('viridis')(x/5), label=0)
+
+def plot_basis_width_func():
+    ws = [i for i in np.linspace(0.1, 1, 6)]
+    basis = [q3.basis_wid(w, odd=False) for w in ws]
+    q3.plot_wave_func(basis, [basis[i](0) for i in range(len(basis))], c=lambda x: plt.get_cmap('twilight')(x/5), label=0)
+
+def plot_basis_width_func_odd_and_even():
+    ws = [i for i in np.linspace(0.1, 1, 3)]
+    basis = [q3.basis_wid(w, odd=False) for w in ws] + [q3.basis_wid(w, odd=True) for w in ws]
+    q3.plot_wave_func(basis, [basis[i](0) for i in range(len(basis))], c=lambda x: plt.get_cmap('twilight')(x/5), label=0)
 
 def plot_E_to_basis_num_V2_width():
     fpath = './result/V2/different_width_odd_and_even/Es.txt'
@@ -34,7 +44,7 @@ def plot_E_to_basis_num_V2_width():
 def plot_E_to_basis_num_V2_center():
     fpath = './result/V2/different_center/Es.txt'
     Es = np.loadtxt(fpath)
-    basis_nums = [4, 5, 6, 7, 8, 9, 10, 20, 25, 30, 35, 40]
+    basis_nums = [4, 5, 6, 7, 8, 9, 10, 20, 25, 30, 35, 40, 100]
     fig, ax = plt.subplots(1, 1)
     fig.set_size_inches(10, 6)
     fig.set_size_inches(10, 6)
@@ -66,7 +76,7 @@ def plot_E_to_basis_num_V2_center():
     # V2 = (x^4/x_0^4 - x^2/x_0^2) \frac{m\omega^2x_0^2}{2} where x_0 = 1
     ax_inset.set_ylabel('energy / '+'$\hbar\omega$')
     
-    fig.savefig('./result/V2/different_center/differen_basis.png', dpi=600)
+    fig.savefig('./result/V2/different_center/different_basis.png', dpi=600)
     plt.show()
 
-plot_E_to_basis_num_V2_center()
+plot_basis_width_func()
