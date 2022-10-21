@@ -144,7 +144,7 @@ print('\nRREF:')
 m4.get_RREF().print_matrix()
 print('\n')
 
-m5 = matrix([[1, 1, 1, 4], [2, 2, 11, 9], [2, 2, 2, -3]])
+m5 = matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 print('test case 6')
 print('input matrix')
 m5.print_matrix()
