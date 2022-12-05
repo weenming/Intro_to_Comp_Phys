@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "*.f90": "fortran-modern",
+        "Simpson.C": "cpp"
+    }
+}
